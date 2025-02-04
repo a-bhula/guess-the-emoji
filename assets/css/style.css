@@ -37,57 +37,34 @@ button:hover {
 }
 /* Emoji Display */
 #emoji-display {
-    font-size: 3rem;
+    font-size: 60px;
+    margin: 30px auto;
     padding: 20px;
     background: white;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: fit-content;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Input & Buttons */
-input[type="text"] {
-    padding: 10px;
-    font-size: 1.2rem;
-    border: 2px solid #ff758c;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 300px;
-    margin: 10px 0;
+#user-guess {
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 2px solid #ff6f61;
+    width: 60%;
+    text-align: center;
 }
 
-button {
-    background: #ff758c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ff4757;
-}
-
-/* Feedback */
 #feedback {
-    font-size: 1.5rem;
+    font-size: 22px;
     font-weight: bold;
-    margin: 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 .correct {
     color: green;
-    animation: bounce 0.5s ease-in-out;
-}
-
-.wrong {
-    color: red;
+    animation: bounce 0.5s ease;
 }
 
 @keyframes bounce {
@@ -99,54 +76,25 @@ button:hover {
     }
 }
 
-/* Score & Timer */
-#score, #timer {
-    font-size: 1.2rem;
-    background: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 10px;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.modal-content {
-    text-align: left;
-}
-
-.close {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.close:hover {
+.wrong {
     color: red;
+    animation: shake 0.5s ease-in-out;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-    #emoji-display {
-        font-size: 2rem;
-    }
-    button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+#score {
+    font-size: 26px;
+    font-weight: bold;
+    background: #ffcc5c;
+    padding: 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
