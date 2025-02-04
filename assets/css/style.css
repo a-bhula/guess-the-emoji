@@ -2,7 +2,10 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
-    background: url('https://www.transparenttextures.com/patterns/food.png'), linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4), 
+                url('https://www.transparenttextures.com/patterns/food.png');
+    background-blend-mode: overlay;
+    background-size: cover;
     color: #333;
     margin: 0;
     padding: 0;
