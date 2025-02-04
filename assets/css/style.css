@@ -1,26 +1,40 @@
 * General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
-    padding: 20px;
+    background: url('https://www.transparenttextures.com/patterns/food.png'), linear-gradient(135deg, #ff9a9e, #fad0c4);
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    border-radius: 10px;
+    background-color: #ff6f61;
+    color: white;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 20px 20px;
 }
 
-h1 {
-    font-size: 2rem;
-    color: #444;
+button {
+    background: #ffcc5c;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+button:hover {
+    background: #ffb347;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 /* Emoji Display */
 #emoji-display {
     font-size: 3rem;
