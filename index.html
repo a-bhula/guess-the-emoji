@@ -7,21 +7,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-     <!-- Game Container -->
-    <p>Hello, hope this updates</p>
-    <p>Hope this updates again</p>
-    <p>Please please please</p>
-     <!-- Emoji Display -->
-
-     <!-- Input and Submit Button -->
-
-     <!-- Feedback Message -->
-
-     <!-- Score and Progress -->
-
-     <!-- Game Controls -->
+    <header>
+        <h1>Emoji Guessing Game</h1>
+        <button id="how-to-play">How to Play</button>
+    </header>
     
-<!-- test merge -=-=-=-=-- -->
+    <main>
+        <div id="emoji-display" aria-live="polite"></div>
+        <input type="text" id="user-guess" placeholder="Enter your guess here..." aria-label="Your guess">
+        <button id="submit-guess">Submit</button>
+        <p id="feedback" aria-live="assertive"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button id="next-question">Next Question</button>
+        <button id="hint">Hint</button>
+        <p id="timer">Time Left: <span id="time-left">30</span>s</p>
+        <button id="restart">Restart</button>
+    </main>
+
+    <div id="instructions" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play</h2>
+            <p>Guess the phrase represented by the emojis! Submit your answer, get hints, and track your score.</p>
+        </div>
+    </div>
 
      <script src="assets/JS/script.js"></script>
 </body>
