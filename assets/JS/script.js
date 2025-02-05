@@ -61,3 +61,44 @@ function checkGuess(userGuess) {
         return false;
     }
 }
+
+// Function to remove the answered question from the array
+function removeQuestion(question) {
+    let questions;
+    if (currentDifficulty === 'easy') {
+        questions = easyQuestions;
+    } else if (currentDifficulty === 'medium') {
+        questions = mediumQuestions;
+    } else {
+        questions = hardQuestions;
+    }
+    const index = questions.indexOf(question);
+    if (index > -1) {
+        questions.splice(index, 1);
+    }
+}
+
+// Function to increase the difficulty level
+function increaseDifficulty() {
+    if (currentDifficulty === 'easy') {
+        currentDifficulty = 'medium';
+    } else if (currentDifficulty === 'medium') {
+        currentDifficulty = 'hard';
+    } else {
+        alert('Congratulations! You have completed all difficulty levels!');
+        return;
+    }
+    questionCount = 0;
+    alert(`Difficulty increased to ${currentDifficulty}!`);
+    displayQuestion();
+}
+
+// Function to show confetti
+function showConfetti() {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.setProperty('--x', Math.random() * 2 - 1);
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 1500);
+}
+
