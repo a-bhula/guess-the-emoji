@@ -106,3 +106,18 @@ function showConfetti() {
 function showHint() {
     alert(`Hint: ${currentQuestion.hint}`);
 }
+
+// Function to restart the game
+function restartGame() {
+    currentDifficulty = 'easy';
+    questionCount = 0;
+    correctAnswers = 0;
+    score = 0;
+    document.getElementById('score').textContent = score;
+    document.getElementById('feedback').textContent = '';
+    document.getElementById('user-guess').value = '';
+    timerStarted = false;
+    clearInterval(timerInterval);
+    document.getElementById('time-left').textContent = 90;
+    displayQuestion();
+}
