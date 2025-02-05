@@ -118,6 +118,12 @@ function increaseDifficulty() {
     displayQuestion();
 }
 
+// Function to display progress
+function displayProgress() {
+    const progressBar = document.getElementById('progress-bar');
+    progressBar.value = correctAnswers;
+}
+
 // Function to show confetti with animation
 function showConfetti() {
     const confetti = document.createElement('div');
@@ -166,6 +172,10 @@ function startTimer() {
 }
 
 // Event listeners for buttons
+document.addEventListener('DOMContentLoaded', () => {
+    displayQuestion();
+    displayProgress();
+
 document.getElementById('submit-guess').addEventListener('click', () => {
     const userGuess = document.getElementById('user-guess').value;
     checkGuess(userGuess);
@@ -200,7 +210,4 @@ document.getElementById('user-guess').addEventListener('keypress', (event) => {
         checkGuess(userGuess);
     }
 });
-
-// Initialize the first question
-displayQuestion();
 
