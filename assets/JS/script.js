@@ -152,3 +152,10 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     checkGuess(userGuess);
 });
 
+document.getElementById('next-question').addEventListener('click', () => {
+    displayQuestion();
+    document.getElementById('user-guess').value = '';
+    document.getElementById('feedback').textContent = '';
+});
+
+
