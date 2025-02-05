@@ -152,13 +152,13 @@ function restartGame() {
     document.getElementById('user-guess').value = '';
     timerStarted = false;
     clearInterval(timerInterval);
-    document.getElementById('time-left').textContent = 90;
+    document.getElementById('time-left').textContent = 150;
     displayQuestion();
 }
 
 // Function to start the timer
 function startTimer() {
-    let timeLeft = 90;
+    let timeLeft = 150;
     document.getElementById('time-left').textContent = timeLeft;
     timerInterval = setInterval(() => {
         timeLeft--;
