@@ -15,15 +15,17 @@
     </header>
   
     <main>
-        <div id="emoji-display" aria-live="polite"></div>
+        <div id="emoji-display" aria-live="polite" role="img" aria-label="Current emoji"></div>
         <input type="text" id="user-guess" placeholder="Enter your guess here..." aria-label="Your guess">
         <button id="submit-guess">Submit</button>
         <p id="feedback" aria-live="assertive"></p>
         <p>Score: <span id="score">0</span></p>
         <button id="next-question">Next Question</button>
-        <button id="hint">Hint</button>
+        <button id="hint" aria-label="Click to get a hint about the emoji">Hint</button>
         <p id="timer">Time Left: <span id="time-left"></span>s</p>
         <button id="restart">Restart</button>
+<       p>Progress: <progress id="progress-bar" max="5" value="0"></progress></p>
+
     </main>
 
     <div id="instructions" class="modal">
