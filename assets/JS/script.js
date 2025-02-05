@@ -173,8 +173,8 @@ function startTimer() {
 
 // Event listeners for buttons
 document.addEventListener('DOMContentLoaded', () => {
-    displayQuestion();
-    displayProgress();
+    displayQuestion();   
+    displayProgress();   
 
 document.getElementById('submit-guess').addEventListener('click', () => {
     const userGuess = document.getElementById('user-guess').value;
