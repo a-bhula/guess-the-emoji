@@ -8,19 +8,19 @@ const easyQuestions = [
 ];
 
 const mediumQuestions = [
-    { emoji: "🌮", answer: "taco", hint: "Mexican food" },
-    { emoji: "🎸", answer: "guitar", hint: "A musical instrument" },
-    { emoji: "🏀", answer: "basketball", hint: "A sport" },
-    { emoji: "🍕", answer: "pizza", hint: "Italian food" },
-    { emoji: "🎧", answer: "headphones", hint: "For listening to music" }
+    { emoji: "👁️🔑🅰️", answer: "ikea", hint: "Sweeden super shop" },
+    { emoji: "☁️☀️🌧🥄🥄", answer: "wetherspoons", hint: "Uk pub" },
+    { emoji: "👨👨👨👨👨", answer: "five guys", hint: "Its simpler than you think" },
+    { emoji: "🌮🔔", answer: "taco bell", hint: "Mexican food" },
+    { emoji: "⬆️🧭😊", answer: "North Face", hint: "Opposite of South Foot" }
 ];
 
 const hardQuestions = [
-    { emoji: "🧑‍💻", answer: "developer", hint: "A profession" },
-    { emoji: "🦄", answer: "unicorn", hint: "A mythical creature" },
-    { emoji: "🌌", answer: "galaxy", hint: "In space" },
-    { emoji: "🧩", answer: "puzzle", hint: "A brain game" },
-    { emoji: "🎯", answer: "target", hint: "Aim for it" }
+    { emoji: "🛁👑🔔💨", answer: "the fresh prince of bel air", hint: "In West Philadelphia born and raised..." },
+    { emoji: "😀😭😡😱🤢", answer: "inside out", hint: "Movie about a girl with her five emotions" },
+    { emoji: "󠁧󠁢󠁳👩‍🚀🌌🕰️", answer: "interstellar", hint: "Movie about space and time manipulation" },
+    { emoji: "🐒🌆🗽", answer: "planet of the apes", hint: "Ape Together Strong!!!" },
+    { emoji: "🕴️🔴💊🔵", answer: "the matrix", hint: "Slow motion bullet time" }
 ];
 
 // Variables to track the current difficulty, question count, and score
@@ -42,6 +42,9 @@ function getRandomQuestion() {
     } else {
         questions = hardQuestions;
     }
+    if (questions.length === 0) {
+        return undefined; // Return undefined if no questions are left
+    }
     const randomIndex = Math.floor(Math.random() * questions.length);
     return questions[randomIndex];
 }
@@ -53,6 +56,10 @@ function displayQuestion() {
         return;
     }
     currentQuestion = getRandomQuestion();
+    if (!currentQuestion) {
+        alert('No more questions available for this difficulty level!');
+        return;
+    }
     document.getElementById('emoji-display').textContent = currentQuestion.emoji;
     questionCount++;
     document.getElementById('next-question').disabled = true; // Disable the "Next Question" button
@@ -60,6 +67,10 @@ function displayQuestion() {
 
 // Function to check the user's guess
 function checkGuess(userGuess) {
+    if (!currentQuestion) {
+        console.error('No current question set');
+        return;
+    }
     if (userGuess.toLowerCase() === currentQuestion.answer.toLowerCase()) {
         document.getElementById('feedback').textContent = "Correct!";
         document.getElementById('feedback').classList.add('correct');
@@ -69,20 +80,18 @@ function checkGuess(userGuess) {
         document.getElementById('score').textContent = score;
         showConfetti();
         removeQuestion(currentQuestion);
+        document.getElementById('user-guess').value = '';
         if (questionCount >= 5) {
             increaseDifficulty();
         } else {
-            setTimeout(() => {
-                document.getElementById('user-guess').value = '';
-                document.getElementById('feedback').textContent = '';
-                displayQuestion();
-            }, 1000); // Move to the next question after 1 second
+            displayQuestion();
         }
         return true;
     } else {
         document.getElementById('feedback').textContent = "Wrong!";
         document.getElementById('feedback').classList.add('wrong');
         document.getElementById('feedback').classList.remove('correct');
+        document.getElementById('next-question').disabled = false; // Enable the "Next Question" button
         return false;
     }
 }
@@ -111,10 +120,13 @@ function increaseDifficulty() {
         currentDifficulty = 'hard';
     } else {
         alert('Congratulations! You have completed all difficulty levels!');
+        clearInterval(timerInterval); // Stop the timer
         return;
     }
     questionCount = 0;
     alert(`Difficulty increased to ${currentDifficulty}!`);
+    document.getElementById('feedback').textContent = ''; // Clear the feedback message
+    document.getElementById('feedback').classList.remove('correct'); // Remove the "correct" class
     displayQuestion();
 }
 
@@ -172,6 +184,7 @@ document.getElementById('next-question').addEventListener('click', () => {
     displayQuestion();
     document.getElementById('user-guess').value = '';
     document.getElementById('feedback').textContent = '';
+    document.getElementById('feedback').classList.remove('correct'); // Remove the "correct" class
 });
 
 document.getElementById('hint').addEventListener('click', () => {
@@ -188,13 +201,32 @@ document.getElementById('user-guess').addEventListener('input', () => {
         startTimer();
         timerStarted = true;
     }
-})
+});
 
 // Event listener to submit the guess when the user presses Enter
 document.getElementById('user-guess').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         const userGuess = document.getElementById('user-guess').value;
         checkGuess(userGuess);
+    }
+});
+
+// Event listeners for the modal
+const modal = document.getElementById('instructions');
+const openModalBtn = document.getElementById('how-to-play');
+const closeModalBtn = document.querySelector('.close');
+
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
 });
 
