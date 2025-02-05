@@ -92,3 +92,13 @@ function increaseDifficulty() {
     alert(`Difficulty increased to ${currentDifficulty}!`);
     displayQuestion();
 }
+
+// Function to show confetti
+function showConfetti() {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.setProperty('--x', Math.random() * 2 - 1);
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 1500);
+}
+
