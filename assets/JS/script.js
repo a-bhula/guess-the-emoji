@@ -1,10 +1,10 @@
 // Arrays of emoji questions for each difficulty level
 const easyQuestions = [
-    { emoji: "😀", answer: "happy", hint: "Feeling good" },
-    { emoji: "🐱", answer: "cat", hint: "A common pet" },
-    { emoji: "🚗", answer: "car", hint: "A vehicle" },
-    { emoji: "🍎", answer: "apple", hint: "A fruit" },
-    { emoji: "🌞", answer: "sun", hint: "In the sky" }
+    { emoji: "🦑🎮", answer: "squid game", hint: "Movie" },
+    { emoji: "⭐💰", answer: "starbucks", hint: "Brand name" },
+    { emoji: "🦁👑", answer: "lion king", hint: "Disney movie" },
+    { emoji: "👀📱", answer: "iphone", hint: "Brand name" },
+    { emoji: "🔎🐟", answer: "finding nemo", hint: "Movie" }
 ];
 
 const mediumQuestions = [
