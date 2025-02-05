@@ -102,3 +102,7 @@ function showConfetti() {
     setTimeout(() => confetti.remove(), 1500);
 }
 
+// Function to show a hint
+function showHint() {
+    alert(`Hint: ${currentQuestion.hint}`);
+}
