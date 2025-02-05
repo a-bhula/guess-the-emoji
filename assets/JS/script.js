@@ -21,3 +21,14 @@ function getRandomQuestion() {
     return questions[randomIndex];
 }
 
+// Function to display a question
+function displayQuestion() {
+    if (questionCount >= 5) {
+        alert('You have completed all questions for this difficulty level!');
+        return;
+    }
+    currentQuestion = getRandomQuestion();
+    document.getElementById('emoji-display').textContent = currentQuestion.emoji;
+    questionCount++;
+    document.getElementById('next-question').disabled = true; // Disable the "Next Question" button
+}
