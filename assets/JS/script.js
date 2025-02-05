@@ -158,4 +158,14 @@ document.getElementById('next-question').addEventListener('click', () => {
     document.getElementById('feedback').textContent = '';
 });
 
+document.getElementById('hint').addEventListener('click', () => {
+    showHint();
+});
+
+document.getElementById('restart').addEventListener('click', () => {
+    restartGame();
+});
+
+// Initialize the first question
+displayQuestion();
 
