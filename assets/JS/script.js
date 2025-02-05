@@ -32,3 +32,32 @@ function displayQuestion() {
     questionCount++;
     document.getElementById('next-question').disabled = true; // Disable the "Next Question" button
 }
+
+// Function to check the user's guess
+function checkGuess(userGuess) {
+    if (userGuess.toLowerCase() === currentQuestion.answer.toLowerCase()) {
+        document.getElementById('feedback').textContent = "Correct!";
+        document.getElementById('feedback').classList.add('correct');
+        document.getElementById('feedback').classList.remove('wrong');
+        correctAnswers++;
+        score += 10;
+        document.getElementById('score').textContent = score;
+        showConfetti();
+        removeQuestion(currentQuestion);
+        if (questionCount >= 5) {
+            increaseDifficulty();
+        } else {
+            setTimeout(() => {
+                document.getElementById('user-guess').value = '';
+                document.getElementById('feedback').textContent = '';
+                displayQuestion();
+            }, 1000); // Move to the next question after 1 second
+        }
+        return true;
+    } else {
+        document.getElementById('feedback').textContent = "Wrong!";
+        document.getElementById('feedback').classList.add('wrong');
+        document.getElementById('feedback').classList.remove('correct');
+        return false;
+    }
+}
