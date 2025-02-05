@@ -161,3 +161,43 @@ function startTimer() {
         }
     }, 1000);
 }
+
+// Event listeners for buttons
+document.getElementById('submit-guess').addEventListener('click', () => {
+    const userGuess = document.getElementById('user-guess').value;
+    checkGuess(userGuess);
+});
+
+document.getElementById('next-question').addEventListener('click', () => {
+    displayQuestion();
+    document.getElementById('user-guess').value = '';
+    document.getElementById('feedback').textContent = '';
+});
+
+document.getElementById('hint').addEventListener('click', () => {
+    showHint();
+});
+
+document.getElementById('restart').addEventListener('click', () => {
+    restartGame();
+});
+
+// Event listener to start the timer when the user starts typing
+document.getElementById('user-guess').addEventListener('input', () => {
+    if (!timerStarted) {
+        startTimer();
+        timerStarted = true;
+    }
+})
+
+// Event listener to submit the guess when the user presses Enter
+document.getElementById('user-guess').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const userGuess = document.getElementById('user-guess').value;
+        checkGuess(userGuess);
+    }
+});
+
+// Initialize the first question
+displayQuestion();
+
