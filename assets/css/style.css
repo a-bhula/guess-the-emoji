@@ -1,5 +1,10 @@
 /* General Styles  */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+html {
+    scroll-behavior: smooth; /* Smooth scroll effect */
+}
+
 body {
     font-family: 'Fredoka', sans-serif;
     text-align: center;
@@ -22,8 +27,12 @@ header {
     text-transform: uppercase;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 20px 20px;
-
+    transition: background 0.3s ease; /* Smooth transition for background */
  }
+
+header:hover {
+    background: linear-gradient(135deg, #FFCC5C, #FF6F61); /* Hover effect for header */
+}
 
 button {
     background: #ffcc5c;
