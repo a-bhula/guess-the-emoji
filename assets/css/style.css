@@ -1,12 +1,24 @@
+<<<<<<< HEAD
 /* General Styles  */
+=======
+* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+>>>>>>> main
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Fredoka', sans-serif;
     text-align: center;
+<<<<<<< HEAD
     background: #ff6f61 url(../images/emoji-background.png);
     /* background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     background-image: url(../images/emoji-background.png);
     background-repeat: repeat;
     background-size: auto; */
+=======
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4), 
+                url('https://www.transparenttextures.com/patterns/food.png');
+    background-blend-mode: overlay;
+    background-size: cover;
+>>>>>>> main
     color: #333;
     margin: 0;
     padding: 0;
@@ -102,10 +114,10 @@ button:hover {
     padding: 10px;
     border-radius: 12px;
     display: inline-block;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
 }
 
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -114,36 +126,50 @@ button:hover {
     transform: translate(-50%, -50%);
     background: white;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .modal-content {
-    font-size: 20px;
+    text-align: left;
 }
 
 .close {
-    font-size: 28px;
+    float: right;
+    font-size: 1.5rem;
     cursor: pointer;
+}
+
+.close:hover {
     color: red;
-    font-weight: bold;
 }
 
-/* Confetti animation for correct answer */
-.confetti {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background: gold;
-    opacity: 0.7;
-    border-radius: 50%;
-    animation: confetti-fall 1.5s linear infinite;
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        font-size: 24px;
+        padding: 15px;
+    }
+    button {
+        font-size: 18px;
+        padding: 10px;
+    }
+    #emoji-display {
+        font-size: 50px;
+    }
 }
 
-@keyframes confetti-fall {
-    0% { transform: translateY(0) translateX(0); opacity: 1; }
-    100% { transform: translateY(100vh) translateX(calc(-50vw + 100 * var(--x))); opacity: 0; }
+@media (max-width: 480px) {
+    header {
+        font-size: 20px;
+        padding: 10px;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px;
+    }
+    #emoji-display {
+        font-size: 40px;
+    }
 }
