@@ -118,22 +118,13 @@ function increaseDifficulty() {
     displayQuestion();
 }
 
-// Function to display progress
-function displayProgress() {
-    const progressBar = document.getElementById('progress-bar');
-    progressBar.value = correctAnswers;
-}
-
-// Function to show confetti with animation
+// Function to show confetti
 function showConfetti() {
     const confetti = document.createElement('div');
     confetti.classList.add('confetti');
     confetti.style.setProperty('--x', Math.random() * 2 - 1);
     document.body.appendChild(confetti);
     setTimeout(() => confetti.remove(), 1500);
-    // Add sound effect for correct answer
-    const correctSound = new Audio('correct-sound.mp3');
-    correctSound.play();
 }
 
 // Function to show a hint
@@ -172,10 +163,6 @@ function startTimer() {
 }
 
 // Event listeners for buttons
-document.addEventListener('DOMContentLoaded', () => {
-    displayQuestion();   
-    displayProgress();   
-
 document.getElementById('submit-guess').addEventListener('click', () => {
     const userGuess = document.getElementById('user-guess').value;
     checkGuess(userGuess);
@@ -211,3 +198,5 @@ document.getElementById('user-guess').addEventListener('keypress', (event) => {
     }
 });
 
+// Initialize the first question
+displayQuestion();
