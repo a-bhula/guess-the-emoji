@@ -119,14 +119,11 @@ function increaseDifficulty() {
     } else if (currentDifficulty === 'medium') {
         currentDifficulty = 'hard';
     } else {
-        alert('Congratulations! You have completed all difficulty levels!');
-        clearInterval(timerInterval); // Stop the timer
+        showMessageModal('Congratulations! You have completed all difficulty levels!');
         return;
     }
     questionCount = 0;
-    alert(`Difficulty increased to ${currentDifficulty}!`);
-    document.getElementById('feedback').textContent = ''; // Clear the feedback message
-    document.getElementById('feedback').classList.remove('correct'); // Remove the "correct" class
+    showMessageModal(`Difficulty increased to ${currentDifficulty}!`);
     displayQuestion();
 }
 
@@ -155,13 +152,13 @@ function restartGame() {
     document.getElementById('user-guess').value = '';
     timerStarted = false;
     clearInterval(timerInterval);
-    document.getElementById('time-left').textContent = 90;
+    document.getElementById('time-left').textContent = 150;
     displayQuestion();
 }
 
 // Function to start the timer
 function startTimer() {
-    let timeLeft = 90;
+    let timeLeft = 150;
     document.getElementById('time-left').textContent = timeLeft;
     timerInterval = setInterval(() => {
         timeLeft--;
@@ -172,6 +169,17 @@ function startTimer() {
             displayQuestion();
         }
     }, 1000);
+}
+
+// Function to show a custom message modal
+function showMessageModal(message) {
+    document.getElementById('message-text').textContent = message;
+    document.getElementById('message-modal').style.display = 'block';
+}
+
+// Function to close the custom message modal
+function closeMessageModal() {
+    document.getElementById('message-modal').style.display = 'none';
 }
 
 // Event listeners for buttons
