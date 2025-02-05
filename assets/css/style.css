@@ -1,24 +1,13 @@
-<<<<<<< HEAD
 /* General Styles  */
-=======
-* General Styles */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
->>>>>>> main
 body {
     font-family: 'Fredoka', sans-serif;
     text-align: center;
-<<<<<<< HEAD
     background: #ff6f61 url(../images/emoji-background.png);
     /* background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     background-image: url(../images/emoji-background.png);
     background-repeat: repeat;
     background-size: auto; */
-=======
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4), 
-                url('https://www.transparenttextures.com/patterns/food.png');
-    background-blend-mode: overlay;
-    background-size: cover;
->>>>>>> main
     color: #333;
     margin: 0;
     padding: 0;
