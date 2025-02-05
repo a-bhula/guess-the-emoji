@@ -118,13 +118,16 @@ function increaseDifficulty() {
     displayQuestion();
 }
 
-// Function to show confetti
+// Function to show confetti with animation
 function showConfetti() {
     const confetti = document.createElement('div');
     confetti.classList.add('confetti');
     confetti.style.setProperty('--x', Math.random() * 2 - 1);
     document.body.appendChild(confetti);
     setTimeout(() => confetti.remove(), 1500);
+    // Add sound effect for correct answer
+    const correctSound = new Audio('correct-sound.mp3');
+    correctSound.play();
 }
 
 // Function to show a hint
