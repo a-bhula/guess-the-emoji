@@ -1,12 +1,7 @@
 /* General Styles  */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
-
-html {
-    scroll-behavior: smooth; /* Smooth scroll effect */
-}
-
 body {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
     background: #ff6f61 url(../images/emoji-background.png);
     /* background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -27,12 +22,8 @@ header {
     text-transform: uppercase;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 20px 20px;
-    transition: background 0.3s ease; /* Smooth transition for background */
- }
 
-header:hover {
-    background: linear-gradient(135deg, #FFCC5C, #FF6F61); /* Hover effect for header */
-}
+ }
 
 button {
     background: #ffcc5c;
@@ -115,6 +106,16 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* #score-text, #timer{
+    background: #ffcc5c;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+} */
+
 .modal {
     display: none;
     position: fixed;
@@ -173,3 +174,16 @@ button:hover {
 }
 
 /* 480px */
+@media (max-width: 480px) {
+    header {
+        font-size: 20px;
+        padding: 10px;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px;
+    }
+    #emoji-display {
+        font-size: 40px;
+    }
+}
