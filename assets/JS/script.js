@@ -1,3 +1,28 @@
+// Arrays of emoji questions for each difficulty level
+const easyQuestions = [
+    { emoji: "😀", answer: "happy", hint: "Feeling good" },
+    { emoji: "🐱", answer: "cat", hint: "A common pet" },
+    { emoji: "🚗", answer: "car", hint: "A vehicle" },
+    { emoji: "🍎", answer: "apple", hint: "A fruit" },
+    { emoji: "🌞", answer: "sun", hint: "In the sky" }
+];
+
+const mediumQuestions = [
+    { emoji: "🌮", answer: "taco", hint: "Mexican food" },
+    { emoji: "🎸", answer: "guitar", hint: "A musical instrument" },
+    { emoji: "🏀", answer: "basketball", hint: "A sport" },
+    { emoji: "🍕", answer: "pizza", hint: "Italian food" },
+    { emoji: "🎧", answer: "headphones", hint: "For listening to music" }
+];
+
+const hardQuestions = [
+    { emoji: "🧑‍💻", answer: "developer", hint: "A profession" },
+    { emoji: "🦄", answer: "unicorn", hint: "A mythical creature" },
+    { emoji: "🌌", answer: "galaxy", hint: "In space" },
+    { emoji: "🧩", answer: "puzzle", hint: "A brain game" },
+    { emoji: "🎯", answer: "target", hint: "Aim for it" }
+];
+
 // Variables to track the current difficulty, question count, and score
 let currentDifficulty = 'easy';
 let questionCount = 0;
@@ -120,4 +145,19 @@ function restartGame() {
     clearInterval(timerInterval);
     document.getElementById('time-left').textContent = 90;
     displayQuestion();
+}
+
+// Function to start the timer
+function startTimer() {
+    let timeLeft = 90;
+    document.getElementById('time-left').textContent = timeLeft;
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById('time-left').textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert('Time is up!');
+            displayQuestion();
+        }
+    }, 1000);
 }
