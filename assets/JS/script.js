@@ -77,3 +77,18 @@ function removeQuestion(question) {
         questions.splice(index, 1);
     }
 }
+
+// Function to increase the difficulty level
+function increaseDifficulty() {
+    if (currentDifficulty === 'easy') {
+        currentDifficulty = 'medium';
+    } else if (currentDifficulty === 'medium') {
+        currentDifficulty = 'hard';
+    } else {
+        alert('Congratulations! You have completed all difficulty levels!');
+        return;
+    }
+    questionCount = 0;
+    alert(`Difficulty increased to ${currentDifficulty}!`);
+    displayQuestion();
+}
