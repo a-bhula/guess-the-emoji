@@ -87,6 +87,22 @@ function checkGuess(userGuess) {
     }
 }
 
+// Function to remove the answered question from the array
+function removeQuestion(question) {
+    let questions;
+    if (currentDifficulty === 'easy') {
+        questions = easyQuestions;
+    } else if (currentDifficulty === 'medium') {
+        questions = mediumQuestions;
+    } else {
+        questions = hardQuestions;
+    }
+    const index = questions.indexOf(question);
+    if (index > -1) {
+        questions.splice(index, 1);
+    }
+}
+
 // Function to increase the difficulty level
 function increaseDifficulty() {
     if (currentDifficulty === 'easy') {
@@ -165,6 +181,14 @@ document.getElementById('hint').addEventListener('click', () => {
 document.getElementById('restart').addEventListener('click', () => {
     restartGame();
 });
+
+// Event listener to start the timer when the user starts typing
+document.getElementById('user-guess').addEventListener('input', () => {
+    if (!timerStarted) {
+        startTimer();
+        timerStarted = true;
+    }
+})
 
 // Initialize the first question
 displayQuestion();
