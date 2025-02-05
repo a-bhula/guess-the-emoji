@@ -152,4 +152,7 @@ button {
         font-size: 18px;
         padding: 10px;
     }
+    #emoji-display {
+        font-size: 50px;
+    }
 }
